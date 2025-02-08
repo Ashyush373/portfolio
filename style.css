@@ -17,45 +17,154 @@ header {
     color: white;
 }
 
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+nav {
+    margin-left: 20px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content */
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: left;
+}
+
 /* Hero Section */
-.hero {
-    opacity: 0;
-    transform: translateY(50px);
-    animation: fadeInUp 1.5s forwards ease-out;
+.hero h2 {
+    font-size: 36px;
+    margin: 0;
 }
 
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.hero p {
+    font-size: 20px;
+    color: #666;
+    margin: 10px 0;
 }
 
-/* Project Cards Animation */
+.hero button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.hero button:hover {
+    background-color: #0056b3;
+}
+
+/* Sections */
+section {
+    padding: 40px 0;
+}
+
+h2 {
+    font-size: 28px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+}
+
+/* Project Section */
 .project-card {
-    opacity: 0;
-    transform: translateX(-50px);
-    transition: all 0.5s ease-in-out;
+    background-color: white;
+    padding: 15px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
-.project-card.visible {
-    opacity: 1;
-    transform: translateX(0);
+.project-card:hover {
+    transform: scale(1.05);
 }
 
-/* Social Icons Animation */
+/* Skills */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0;
+    list-style: none;
+}
+
+.skills-list li {
+    background-color: #007BFF;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+/* Contact Form */
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+}
+
+#contactForm input, 
+#contactForm textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 100%;
+}
+
+#contactForm button {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#contactForm button:hover {
+    background-color: #555;
+}
+
+/* Social Icons */
 .social-icons {
-    opacity: 0;
-    transform: scale(0.8);
-    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
 }
 
-.social-icons.visible {
-    opacity: 1;
-    transform: scale(1);
+.social-icons a img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s;
+}
+
+.social-icons a img:hover {
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    text-align: left;
+    padding: 15px;
+    background-color: #333;
+    color: white;
 }
