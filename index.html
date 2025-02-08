@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ayush's Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
 
     <!-- Navigation -->
     <header>
-        <h1 class="fade-in">Ayush</h1>
+        <h1>Ayush</h1>
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
@@ -21,72 +22,71 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h2 class="slide-up">Hi, I'm Ayush</h2>
-        <p class="typewriter">Web Developer | Designer | Coder</p>
-        <button onclick="scrollToSection('projects')">View My Work</button>
-    </section>
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h2>Hi, I'm Ayush</h2>
+            <p>Web Developer | Designer | Coder</p>
+            <button onclick="scrollToSection('projects')">View My Work</button>
+        </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I'm a frontend developer with expertise in front-end  technologies.</p>
-    </section>
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I'm a full-stack developer with expertise in front-end and back-end technologies.</p>
+        </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-card">
-            <h3>Project 1</h3>
-            <p>Description of the project.</p>
-        </div>
-        <div class="project-card">
-            <h3>Project 2</h3>
-            <p>Description of the project.</p>
-        </div>
-    </section>
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-card">
+                <h3>Project 1</h3>
+                <p>Description of the project.</p>
+            </div>
+            <div class="project-card">
+                <h3>Project 2</h3>
+                <p>Description of the project.</p>
+            </div>
+        </section>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul class="skills-list">
-            <li>HTML, CSS (Advanced Animations)</li>
-            <li>JavaScript</li>
-            <li>MongoDB, Express.js</li>
-        </ul>
-    </section>
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul class="skills-list">
+                <li>HTML</li>
+                <li>CSS (Advanced Animations)</li>
+                <li>JavaScript</li>
+                <li>MongoDB</li>
+                <li>Express.js</li>
+            </ul>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <form id="contactForm">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
-            <textarea id="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-        
-        <!-- Social Icons -->
-        <div class="social-icons">
-            <a href="https://wa.link/a338ag" target="_blank">
-                <img src="./assets/whatsapp.png" alt="WhatsApp">
-            </a>
-            <a href="https://www.instagram.com/ayushhh_solaskar" target="_blank">
-                <img src="./assets/instagram.png" alt="Instagram">
-            </a>
-        </div>
-    </section>
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+            
+            <!-- Social Icons -->
+            <div class="social-icons">
+                <a href="https://wa.link/a338ag" target="_blank">
+                    <img src="./assets/whatsapp.png" alt="WhatsApp">
+                </a>
+                <a href="https://www.instagram.com/ayushhh_solaskar" target="_blank">
+                    <img src="./assets/instagram.png" alt="Instagram">
+                </a>
+            </div>
+        </section>
+    </div>
 
     <footer>
         <p>© 2025 Ayush | All Rights Reserved</p>
     </footer>
-
-    <script>
-        function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
 
 </body>
 </html>
