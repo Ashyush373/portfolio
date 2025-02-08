@@ -51,4 +51,10 @@ document.querySelectorAll(".social-icons a").forEach(icon => {
     icon.addEventListener("mouseout", () => {
         icon.style.transform = "scale(1)";
     });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(() => {
+        document.querySelector(".hero h2").style.opacity = "1";
+    }, 500);
 });
