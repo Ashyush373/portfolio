@@ -1,11 +1,11 @@
-// Smooth Scrolling to Sections
+// Smooth Scrolling Function
 function scrollToSection(sectionId) {
     document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
 }
 
-// Apply animations when elements come into view
+// Intersection Observer for Animations
 document.addEventListener("DOMContentLoaded", function () {
-    const elements = document.querySelectorAll(".fade-in, .slide-up");
+    const elements = document.querySelectorAll(".project-card, .social-icons");
 
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -41,14 +41,4 @@ document.getElementById("contactForm").addEventListener("submit", function (even
     // Simulating form submission (Can be integrated with a backend API)
     alert(`Thank you, ${name}! Your message has been sent.`);
     this.reset();
-});
-
-// Add hover effects dynamically to social icons
-document.querySelectorAll(".social-icons a").forEach(icon => {
-    icon.addEventListener("mouseover", () => {
-        icon.style.transform = "scale(1.2)";
-    });
-    icon.addEventListener("mouseout", () => {
-        icon.style.transform = "scale(1)";
-    });
 });
