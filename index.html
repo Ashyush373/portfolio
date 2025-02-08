@@ -3,66 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Ayush's Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- HEADER SECTION STARTS -->
-    <header class="section">
+
+    <!-- Navigation -->
+    <header>
+        <h1 class="fade-in">Ayush</h1>
         <nav>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#education">Education</a>
-                <a href="#projects">Projects</a>
-            </div>
-            <div class="profile-icon">
-                <img src="./assets/logo.png" alt="Profile">
-            </div>
-            <div class="social-icons">
-                <a href="https://wa.link/a338ag" target="_blank">
-                    <img src="./assets/whatsapp.png" alt="WhatsApp">
-                </a>
-                <a href="https://www.instagram.com/ayushhh_solaskar?igsh=MWVlZjJucXFmcDdreQ==" target="_blank">
-                    <img src="./assets/instagram.png" alt="Instagram">
-                </a>
-            </div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </nav>
     </header>
-    <!-- HEADER SECTION ENDS -->
-   
-    <!-- ABOUT SECTION -->
-    <section id="about" class="section">
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2 class="slide-up">Hi, I'm Ayush</h2>
+        <p class="typewriter">Web Developer | Designer | Coder</p>
+        <button onclick="scrollToSection('projects')">View My Work</button>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
         <h2>About Me</h2>
-        <p>Welcome to my portfolio! I am a passionate developer with experience in web development.</p>
+        <p>I'm a full-stack developer with expertise in front-end and back-end technologies.</p>
     </section>
-   
-    <!-- SKILLS SECTION -->
-    <section id="skills" class="section">
-        <h2>Skills</h2>
-        <ul>
-            <li>HTML & CSS</li>
-            <li>JavaScript</li>
-            <li>React.js</li>
-            <li>Python</li>
-        </ul>
-    </section>
-   
-    <!-- EDUCATION SECTION -->
-    <section id="education" class="section">
-        <h2>Education</h2>
-        <p>Bachelor's in Computer Science - XYZ University</p>
-    </section>
-   
-    <!-- PROJECTS SECTION -->
-    <section id="projects" class="section">
+
+    <!-- Projects Section -->
+    <section id="projects">
         <h2>Projects</h2>
-        <div class="project">
-            <h3>Portfolio Website</h3>
-            <p>A personal portfolio website to showcase my skills and projects.</p>
+        <div class="project-card">
+            <h3>Project 1</h3>
+            <p>Description of the project.</p>
+        </div>
+        <div class="project-card">
+            <h3>Project 2</h3>
+            <p>Description of the project.</p>
         </div>
     </section>
-   
-    <script src="script.js"></script>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul class="skills-list">
+            <li>HTML, CSS (Advanced Animations)</li>
+            <li>JavaScript (ES6+, React, Node.js)</li>
+            <li>MongoDB, Express.js</li>
+        </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        
+        <!-- Social Icons -->
+        <div class="social-icons">
+            <a href="https://wa.link/a338ag" target="_blank">
+                <img src="./assets/whatsapp.png" alt="WhatsApp">
+            </a>
+            <a href="https://www.instagram.com/ayushhh_solaskar" target="_blank">
+                <img src="./assets/instagram.png" alt="Instagram">
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Ayush | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+
 </body>
 </html>
