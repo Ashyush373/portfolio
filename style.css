@@ -1,95 +1,167 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
-
-html {
-  scroll-behavior: smooth;
-}
-
+/* General Styles */
 body {
-  margin: 0;
-  font-family: "Poppins ", sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  flex-direction: column;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
 }
 
-/* Common Class for all sections */
-.section {
-  max-width: 1200px;
-  width: 100%;
-  padding: 0 20px;
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 15px 20px;
+    color: white;
 }
 
-/* Header Section */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background-color: #fff;
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
 }
 
-.nav-links {
-  display: flex;
-  gap: 20px;
+nav a {
+    color: white;
+    text-decoration: none;
 }
 
-.nav-links a {
-  text-decoration: none;
-  color: #000000;
+/* Hero Section */
+.hero {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url('background.jpg') no-repeat center center/cover;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Projects Section */
+#projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.project-card {
+    background-color: white;
+    padding: 15px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+/* Skills Section */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Contact Form */
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+}
+
+#contactForm input, #contactForm textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+#contactForm button {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#contactForm button:hover {
+    background-color: #555;
+}
+
+/* Social Icons */
 .social-icons {
-  display: flex;
-  gap: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
 }
 
-.profile-icon img {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
+.social-icons a img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s;
 }
 
-.social-icons img {
-  width: 34px;
-  height: 34px;
+.social-icons a img:hover {
+    transform: scale(1.1);
 }
 
-/* Top Hero Section */
-.top-hero-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
+/* Animations */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
 }
 
-.top-hero-content h1 {
-  font-size: 40px;
-  font-weight: 600;
-  text-align: center;
-  width: 70%;
-  font-weight: 500;
-  margin: 0;
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-
-/* Responsive */
-@media (max-width: 768px) {
-  /* Navbar */
-  nav .social-icons {
-    display: none;
-  }
+.slide-up {
+    transform: translateY(50px);
+    opacity: 0;
+    animation: slideUp 1.5s forwards;
 }
 
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
 
-::-webkit-scrollbar {
-  width: 6px;
+.typewriter {
+    overflow: hidden;
+    border-right: 2px solid #000;
+    white-space: nowrap;
+    width: 0;
+    animation: typing 3s steps(40, end) forwards;
 }
-::-webkit-scrollbar-track {
-  background-color: #dddddd;
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
 }
-::-webkit-scrollbar-thumb {
-  background-color: #000;
-  border-radius: 10px;
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #333;
+    color: white;
+    margin-top: 20px;
 }
