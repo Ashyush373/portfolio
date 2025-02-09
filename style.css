@@ -71,7 +71,7 @@ nav a:hover {
     color: white;
     font-size: 16px;
     cursor: pointer;
-    transition: background 1.0s;
+    transition: background 3.0s;
 }
 
 .hero button:hover {
