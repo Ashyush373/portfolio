@@ -1,4 +1,38 @@
 /* General Styles */
+@keyframes popIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    70% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInHeading {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    animation: slideInHeading 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+section {
+    animation: popIn 0.6s ease-out forwards;
+    opacity: 0;
+}
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -214,7 +248,7 @@ button:hover {
     max-width: 400px;
 }
 
-#contactForm input, 
+#contactForm input,
 #contactForm textarea {
     margin-bottom: 10px;
     padding: 10px;
@@ -222,7 +256,7 @@ button:hover {
     transition: transform 0.2s ease-in-out;
 }
 
-#contactForm input:focus, 
+#contactForm input:focus,
 #contactForm textarea:focus {
     transform: scale(1.02);
 }
@@ -242,13 +276,31 @@ button:hover {
     transform: scale(1);
 }
 
-.social-icons a img {
+.social-icons a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+}
+
+.social-icons a::before {
+    content: '';
     width: 40px;
     height: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.social-icons a img:hover {
+.social-icons a[href*="whatsapp"]::before {
+    background-image: url('./assets/whatsapp.png');
+}
+
+.social-icons a[href*="instagram"]::before {
+    background-image: url('./assets/instagram.png');
+}
+
+.social-icons a:hover::before {
     transform: scale(1.1);
     box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.5);
 }
@@ -260,3 +312,4 @@ footer {
     background-color: #333;
     color: white;
 }
+
