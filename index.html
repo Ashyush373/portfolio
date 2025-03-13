@@ -3,90 +3,408 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayush's Portfolio</title>
+    <title>Ayush Solaskar - Frontend Developer</title>
     <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <!-- Navigation -->
     <header>
-        <h1>Ayush</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+        <nav class="navbar">
+            <div class="container">
+                <a href="#" class="logo">AS</a>
+                <div class="nav-links">
+                    <a href="#hero" class="nav-item active">Home</a>
+                    <a href="#about" class="nav-item">About</a>
+                    <a href="#skills" class="nav-item">Skills</a>
+                    <a href="#projects" class="nav-item">Projects</a>
+                    <a href="#contact" class="nav-item">Contact</a>
+                </div>
+                <button class="menu-toggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </nav>
     </header>
 
-    <!-- Main Content -->
-    <div class="container">
-        <!-- Hero Section -->
-        <section class="hero">
-            <h2>Hi, I'm Ayush</h2>
-            <p>Web Developer | Designer | Coder</p>
-            <button onclick="scrollToSection('projects')">View My Work</button>
-        </section>
-
-        <!-- About Section -->
-        <section id="about">
-            <h2>About Me</h2>
-            <p>I'm a full-stack developer with expertise in front-end and back-end technologies.</p>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="project-card">
-                <h3>Project 1</h3>
-                <p>Description of the project.</p>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="bg-gradient"></div>
+        <div class="bg-glow top-right"></div>
+        <div class="bg-glow bottom-left"></div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <p class="intro-text">Hi, my name is</p>
+                <h1 class="hero-title">
+                    <div class="name-container">
+                        <span id="name-text"></span>
+                        <span id="name-cursor" class="cursor"></span>
+                    </div>
+                    <div class="role-container">
+                        <span id="role-text" class="text-primary"></span>
+                        <span id="role-cursor" class="cursor primary-cursor"></span>
+                    </div>
+                </h1>
+                <p class="hero-description">
+                    I build exceptional digital experiences with a focus on clean code and user-centered design.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                </div>
+                
+                <div class="social-links">
+                    <a href="https://github.com/Ashyush373" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ayush-solaskar-8a926634b" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.instagram.com/ayushhh_solaskar" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.link/a338ag" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
             </div>
-            <div class="project-card">
-                <h3>Project 2</h3>
-                <p>Description of the project.</p>
+        </div>
+        
+        <a href="#about" class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section section">
+        <div class="animated-shape"></div>
+        
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title" data-title="About Me"></h2>
+                    
+                    <div class="about-description">
+                        <p>
+                            I'm a passionate Frontend Developer with a strong foundation in creating responsive and 
+                            interactive web applications. My journey in web development started with a curiosity about 
+                            how things work on the internet, which led me to dive deep into modern frontend technologies.
+                        </p>
+                        <p>
+                            With expertise in HTML, CSS, and JavaScript, I build accessible and performant user interfaces 
+                            that deliver exceptional digital experiences. I'm knowledgeable in modern frameworks and always 
+                            stay updated with the latest web development trends.
+                        </p>
+                        <p>
+                            Beyond frontend skills, I have a solid understanding of data structures and algorithms, 
+                            which helps me write efficient code. My background in C++ and C provides me with deeper insights 
+                            into programming concepts and problem-solving approaches.
+                        </p>
+                    </div>
+                    
+                    <a href="#contact" class="contact-link">
+                        Let's work together <span class="arrow">→</span>
+                    </a>
+                </div>
+                
+                <div class="about-image">
+                    <div class="image-container">
+                        <div class="gradient-overlay"></div>
+                    </div>
+                    <div class="image-border"></div>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Skills Section -->
-        <section id="skills">
-            <h2>Skills</h2>
-            <ul class="skills-list">
-                <li>HTML</li>
-                <li>CSS (Advanced Animations)</li>
-                <li>JavaScript</li>
-                <li>MongoDB</li>
-                <li>Express.js</li>
-            </ul>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <form id="contactForm">
-                <input type="text" id="name" placeholder="Your Name" required>
-                <input type="email" id="email" placeholder="Your Email" required>
-                <textarea id="message" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section section">
+        <div class="bg-gradient"></div>
+        <div class="bg-glow right"></div>
+        
+        <!-- Floating shape animations -->
+        <div class="floating-shape shape1"></div>
+        <div class="floating-shape shape2"></div>
+        
+        <div class="container">
+            <h2 class="section-title" data-title="My Skills"></h2>
+            <p class="section-description">
+                The technologies and tools I've worked with throughout my development journey.
+            </p>
             
-            <!-- Social Icons -->
-            <div class="social-icons">
-                <a href="https://wa.link/a338ag" target="_blank">
-                    <img src="./assets/whatsapp.png" alt="WhatsApp">
-                </a>
-                <a href="https://www.instagram.com/ayushhh_solaskar" target="_blank">
-                    <img src="./assets/instagram.png" alt="Instagram">
-                </a>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3 class="category-title">Frontend Development</h3>
+                    
+                    <div class="skill-item" data-percentage="90">
+                        <div class="skill-header">
+                            <span class="skill-name">HTML5</span>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress frontend"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item" data-percentage="85">
+                        <div class="skill-header">
+                            <span class="skill-name">CSS3</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress frontend"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item" data-percentage="80">
+                        <div class="skill-header">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress frontend"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item" data-percentage="85">
+                        <div class="skill-header">
+                            <span class="skill-name">Responsive Design</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress frontend"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3 class="category-title">Programming & Tools</h3>
+                    
+                    <div class="skill-item" data-percentage="75">
+                        <div class="skill-header">
+                            <span class="skill-name">C++</span>
+                            <span class="skill-percentage">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress programming"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item" data-percentage="70">
+                        <div class="skill-header">
+                            <span class="skill-name">C</span>
+                            <span class="skill-percentage">70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress programming"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item" data-percentage="65">
+                        <div class="skill-header">
+                            <span class="skill-name">Data Structures & Algorithms</span>
+                            <span class="skill-percentage">65%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress programming"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item" data-percentage="80">
+                        <div class="skill-header">
+                            <span class="skill-name">Git & GitHub</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress programming"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
-    <footer>
-        <p>© 2025 Ayush | All Rights Reserved</p>
-    </footer>
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section section">
+        <div class="animated-shape shape1"></div>
+        <div class="animated-shape shape2"></div>
+        
+        <div class="container">
+            <h2 class="section-title" data-title="Featured Projects"></h2>
+            <p class="section-description">
+                Here are some of my notable projects that showcase my skills and experience.
+            </p>
+            
+            <div class="projects-grid">
+                <div class="project-card" data-type="primary">
+                    <div class="card-gradient"></div>
+                    <div class="card-overlay-bg"></div>
+                    
+                    <div class="card-content">
+                        <div class="card-info">
+                            <h3 class="project-title primary-title">Ticket Management System</h3>
+                            <p class="project-description">
+                                A comprehensive ticket management solution built with data structures and algorithms for efficient ticket allocation and priority handling.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag primary-tag">DSA</span>
+                                <span class="tag primary-tag">C++</span>
+                                <span class="tag primary-tag">OOP</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-overlay">
+                        <a href="#" class="project-link primary-btn">
+                            <i class="fas fa-external-link-alt"></i> View Project
+                        </a>
+                        <a href="#" class="project-link code-btn">
+                            <i class="fas fa-code"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-type="secondary">
+                    <div class="card-gradient"></div>
+                    <div class="card-overlay-bg"></div>
+                    
+                    <div class="card-content">
+                        <div class="card-info">
+                            <h3 class="project-title secondary-title">Currency Converter</h3>
+                            <p class="project-description">
+                                A fast and reliable currency conversion tool developed in C that supports multiple currencies with real-time exchange rate updates.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag secondary-tag">C</span>
+                                <span class="tag secondary-tag">API Integration</span>
+                                <span class="tag secondary-tag">File I/O</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-overlay">
+                        <a href="#" class="project-link secondary-btn">
+                            <i class="fas fa-external-link-alt"></i> View Project
+                        </a>
+                        <a href="#" class="project-link code-btn">
+                            <i class="fas fa-code"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</body>
-</html>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section section">
+        <div class="bg-gradient"></div>
+        <div class="bg-glow left"></div>
+        
+        <!-- Animated background elements -->
+        <div class="floating-shape shape1"></div>
+        <div class="floating-shape shape2"></div>
+        
+        <div class="container">
+            <h2 class="section-title" data-title="Get In Touch"></h2>
+            <p class="section-description">
+                Feel free to reach out for collaborations or just a friendly chat.
+            </p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <p class="info-text">
+                        I'm currently available for freelance work and full-time positions. 
+                        If you have a project that needs some creative touch, or if you want to discuss potential opportunities, 
+                        feel free to reach out using the form or through my social links.
+                    </p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <a href="mailto:ayushsolaskar31@gmail.com" class="contact-link">
+                                ayushsolaskar31@gmail.com
+                            </a>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <a href="tel:+917977421277" class="contact-link">
+                                +91 7977421277
+                            </a>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <span class="contact-text">Sewree, Mumbai</span>
+                        </div>
+                    </div>
+                    
+                    <div class="social-icons">
+                        <a href="https://github.com/Ashyush373" class="social-icon" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/ayush-solaskar-8a926634b" class="social-icon" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://wa.link/a338ag" class="social-icon" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.instagram.com/ayushhh_solaskar" class="social-icon" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Name</label>
+                            <div class="input-container">
+                                <input type="text" id="name" name="name" class="form-input" required>
+                                <span class="input-focus-effect"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <div class="input-container">
+                                <input type="email" id="email" name="email" class="form-input" required>
+                                <span class="input-focus-effect"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <div class="input-container">
+                                <input type="text" id="subject" name="subject" class="form-input" required>
+                                <span class="input-focus-effect"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <div class="input-container">
+                                <textarea id="message" name="message" rows="5" class="form-input" required></textarea>
+                                <span class="input-focus-effect"></span>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-hover-effect"></span>
+                        </button>
+                    </fo
