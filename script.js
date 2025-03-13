@@ -1,171 +1,298 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const elements = document.querySelectorAll(".project-card, .social-icons");
-    const projectButtons = document.querySelectorAll(".project-card button");
-    // Project button transitions
-    const projectCards = document.querySelectorAll(".project-card");
-    projectCards.forEach(card => {
-        card.style.transition = "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out";
-        card.addEventListener("mouseenter", () => {
-            card.style.transform = "translateY(-10px)";
-            card.style.boxShadow = "0 10px 20px rgba(0,0,0,0.2)";
-        });
-        card.addEventListener("mouseleave", () => {
-            card.style.transform = "translateY(0)";
-            card.style.boxShadow = "none";
-        });
+// DOM Elements
+document.addEventListener('DOMContentLoaded', function() {
+  // Navigation
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  const navItems = document.querySelectorAll('.nav-item');
+  
+  // Typing animation elements
+  const nameText = document.getElementById('name-text');
+  const roleText = document.getElementById('role-text');
+  const nameCursor = document.getElementById('name-cursor');
+  const roleCursor = document.getElementById('role-cursor');
+  
+  // Section elements
+  const sections = document.querySelectorAll('section');
+  const skillItems = document.querySelectorAll('.skill-item');
+  
+  // Form elements
+  const contactForm = document.getElementById('contact-form');
+  
+  // Navbar scroll effect
+  function handleScroll() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      navbar.style.padding = '1rem 0';
+      navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+    } else {
+      navbar.style.padding = '1.5rem 0';
+      navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+    }
+    
+    // Update active nav item based on scroll position
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (window.scrollY >= (sectionTop - 200)) {
+        current = section.getAttribute('id');
+      }
     });
-
-    // Intersection Observer for fade-in animations
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-            }
-        });
-    }, { threshold: 0.5 });
-    // Handle "View My Work" button click
-    const viewWorkBtn = document.querySelector('.hero button');
-    if (viewWorkBtn) {
-        viewWorkBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-           
-            // Create overlay for transition effect
-            const overlay = document.createElement('div');
-            overlay.style.position = 'fixed';
-            overlay.style.top = '0';
-            overlay.style.left = '0';
-            overlay.style.width = '100%';
-            overlay.style.height = '100%';
-            overlay.style.backgroundColor = '#000';
-            overlay.style.opacity = '0';
-            overlay.style.transition = 'opacity 0.5s ease';
-            overlay.style.zIndex = '9999';
-            document.body.appendChild(overlay);
-
-            // Fade in overlay
-            setTimeout(() => {
-                overlay.style.opacity = '1';
+    
+    navItems.forEach(item => {
+      item.classList.remove('active');
+      if (item.getAttribute('href') === `#${current}`) {
+        item.classList.add('active');
+      }
+    });
+  }
+  
+  // Typing animation effect
+  function startTypingAnimation() {
+    const fullNameText = "Ayush Solaskar";
+    const fullRoleText = "Frontend Developer";
+    let nameIndex = 0;
+    let roleIndex = 0;
+    let nameTypingComplete = false;
+    
+    // Initial delay before typing starts
+    setTimeout(() => {
+      // Type name
+      const nameTypingInterval = setInterval(() => {
+        if (nameIndex < fullNameText.length) {
+          nameText.textContent = fullNameText.substring(0, nameIndex + 1);
+          nameIndex++;
+        } else {
+          clearInterval(nameTypingInterval);
+          nameTypingComplete = true;
+          
+          // Hide name cursor and show role cursor
+          nameCursor.style.visibility = 'hidden';
+          roleCursor.style.visibility = 'visible';
+          
+          // Start typing role after a short delay
+          setTimeout(() => {
+            const roleTypingInterval = setInterval(() => {
+              if (roleIndex < fullRoleText.length) {
+                roleText.textContent = fullRoleText.substring(0, roleIndex + 1);
+                roleIndex++;
+              } else {
+                clearInterval(roleTypingInterval);
+                
+                // Continue cursor blinking only for role
+                setInterval(() => {
+                  roleCursor.style.visibility = 
+                    roleCursor.style.visibility === 'hidden' ? 'visible' : 'hidden';
+                }, 500);
+              }
             }, 100);
-
-            // Create and open new page after transition
-            setTimeout(() => {
-                const newWindow = window.open('', '_blank');
-                newWindow.document.write(`
-                    <!DOCTYPE html>
-                    <html>
-                    <head>
-                        <title>My Development Journey</title>
-                        <style>
-                            body {
-                                font-family: 'Arial', sans-serif;
-                                line-height: 1.6;
-                                margin: 0;
-                                padding: 20px;
-                                background: linear-gradient(135deg, #1a1a1a, #4a4a4a);
-                                color: #fff;
-                            }
-                            .journey-step {
-                                opacity: 0;
-                                transform: translateY(30px);
-                                animation: fadeInUp 0.8s forwards;
-                                padding: 20px;
-                                margin: 20px 0;
-                                background: rgba(255, 255, 255, 0.1);
-                                border-radius: 10px;
-                                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-                            }
-                            @keyframes fadeInUp {
-                                to {
-                                    opacity: 1;
-                                    transform: translateY(0);
-                                }
-                            }
-                            h1 {
-                                text-align: center;
-                                color: #00ff88;
-                                margin-bottom: 40px;
-                                animation: glow 2s infinite;
-                            }
-                            @keyframes glow {
-                                0% { text-shadow: 0 0 10px rgba(0,255,136,0.5); }
-                                50% { text-shadow: 0 0 20px rgba(0,255,136,0.8); }
-                                100% { text-shadow: 0 0 10px rgba(0,255,136,0.5); }
-                            }
-                        </style>
-                    </head>
-                    <body>
-                        <h1>My Magical App Development Journey</h1>
-                        <div class="journey-step" style="animation-delay: 0.2s">
-                            <h2>Chapter 1: The Beginning</h2>
-                            <p>It all started with a simple "Hello World" in HTML. Little did I know this would be the beginning of an extraordinary adventure into the world of web development.</p>
-                        </div>
-                        <div class="journey-step" style="animation-delay: 0.4s">
-                            <h2>Chapter 2: The CSS Chronicles</h2>
-                            <p>Mastering the art of styling, I discovered the power to transform plain pages into visual masterpieces. Each line of CSS became a brush stroke in my digital canvas.</p>
-                        </div>
-                        <div class="journey-step" style="animation-delay: 0.6s">
-                            <h2>Chapter 3: JavaScript Magic</h2>
-                            <p>The real magic began when I delved into JavaScript. Suddenly, static pages came alive with interactivity and dynamic features that seemed like pure wizardry.</p>
-                        </div>
-                        <div class="journey-step" style="animation-delay: 0.8s">
-                            <h2>Chapter 4: The React Revolution</h2>
-                            <p>Discovering React was like finding a magical spell book. Component-based architecture opened new realms of possibilities in my development journey.</p>
-                        </div>
-                        <div class="journey-step" style="animation-delay: 1s">
-                            <h2>Chapter 5: Mobile Dreams</h2>
-                            <p>Venturing into mobile development with Flutter and React Native, I learned to craft experiences that users could carry in their pockets.</p>
-                        </div>
-                        <div class="journey-step" style="animation-delay: 1.2s">
-                            <h2>The Journey Continues...</h2>
-                            <p>Every day brings new challenges and opportunities to create something amazing. This is just the beginning of my endless adventure in the world of development.</p>
-                        </div>
-                    </body>
-                    </html>
-                `);
-                newWindow.document.close();
-            }, 600);
-
-            // Remove overlay from original page
-            setTimeout(() => {
-                document.body.removeChild(overlay);
-            }, 1000);
+          }, 400);
+        }
+      }, 100);
+    }, 800);
+    
+    // Cursor blink effect for name cursor
+    setInterval(() => {
+      if (!nameTypingComplete) {
+        nameCursor.style.visibility = 
+          nameCursor.style.visibility === 'hidden' ? 'visible' : 'hidden';
+      }
+    }, 500);
+  }
+  
+  // Initialize skill bars animation
+  function initSkillBars() {
+    skillItems.forEach(item => {
+      const percentage = item.getAttribute('data-percentage');
+      const progressBar = item.querySelector('.skill-progress');
+      
+      // Observe when skill section comes into view
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            progressBar.style.width = `${percentage}%`;
+            observer.disconnect();
+          }
         });
-    }
-
-    elements.forEach(el => observer.observe(el));
-
-    // Project button hover animations
-    projectButtons.forEach(button => {
-        button.addEventListener("mouseenter", () => {
-            button.style.transform = "scale(1.1)";
-            button.style.transition = "transform 0.3s ease-in-out";
-            button.style.boxShadow = "0 4px 8px rgba(0,0,0,0.2)";
-        });
-
-        button.addEventListener("mouseleave", () => {
-            button.style.transform = "scale(1)";
-            button.style.boxShadow = "none";
-        });
+      }, { threshold: 0.2 });
+      
+      observer.observe(item);
     });
-
-    // Contact form submission handler
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = 'ayushsolaskar31@gmail.com';
-            const name = document.getElementById('name').value;
-            const senderEmail = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-           
-            // Create mailto URL with pre-filled message
-            const mailtoMessage = `Name: ${name}%0AEmail: ${senderEmail}%0AMessage: ${message}`;
-            const mailtoURL = `mailto:${email}?subject=Contact Form Submission&body=${mailtoMessage}`;
-           
-            // Open default mail client
-            window.location.href = mailtoURL;
+  }
+  
+  // Section animation on scroll
+  function initSectionAnimations() {
+    const animateElements = document.querySelectorAll('.section-title, .section-description, .skill-category, .project-card, .contact-info, .contact-form-container');
+    
+    // Create intersection observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    // Observe each element
+    animateElements.forEach(element => {
+      observer.observe(element);
+    });
+  }
+  
+  // Animated letter titles
+  function initLetterAnimations() {
+    const sectionTitles = document.querySelectorAll('.section-title');
+    
+    sectionTitles.forEach(title => {
+      const titleText = title.getAttribute('data-title');
+      const letters = titleText.split('');
+      
+      let html = '';
+      letters.forEach((letter, index) => {
+        if (letter === ' ') {
+          html += '<span class="letter-space">&nbsp;</span>';
+        } else {
+          html += `<span class="letter" style="animation-delay: ${0.1 * index}s">${letter}</span>`;
+        }
+      });
+      
+      title.innerHTML = html;
+      
+      // Observe when title comes into view
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const letters = entry.target.querySelectorAll('.letter');
+            letters.forEach(letter => {
+              letter.classList.add('animate');
+            });
+            
+            // Add underline animation
+            setTimeout(() => {
+              const underline = document.createElement('span');
+              underline.classList.add('title-underline');
+              entry.target.appendChild(underline);
+            }, letters.length * 100 + 200);
+            
+            observer.disconnect();
+          }
         });
+      }, { threshold: 0.2 });
+      
+      observer.observe(title);
+    });
+  }
+  
+  // Contact form submission
+  function setupContactForm() {
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+        
+        // Clear form
+        contactForm.reset();
+        
+        // Show success message (would connect to backend in a real implementation)
+        alert(`Thank you for your message, ${name}! I'll get back to you soon.`);
+      });
     }
+  }
+  
+  // Mobile menu toggle
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+    
+    // Close menu when clicking on a link
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+  }
+  
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        window.scrollTo({
+          top: target.offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+  
+  // Initialize animations and interactions
+  window.addEventListener('scroll', handleScroll);
+  handleScroll(); // Call once to set initial state
+  
+  startTypingAnimation();
+  initSkillBars();
+  initSectionAnimations();
+  initLetterAnimations();
+  setupContactForm();
+  
+  // Update skill bars on window resize
+  window.addEventListener('resize', initSkillBars);
 });
 
-
+// Custom styles for letter animations
+document.head.insertAdjacentHTML('beforeend', `
+  <style>
+    .section-title .letter {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    
+    .section-title .letter.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .section-title .letter-space {
+      display: inline-block;
+      width: 0.5em;
+    }
+    
+    .title-underline {
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 0;
+      height: 8px;
+      background-color: rgba(250, 204, 21, 0.2); /* --accent-light */
+      z-index: -1;
+      transform: rotate(-1deg);
+      animation: showTitleUnderline 0.5s ease forwards;
+    }
+    
+    @keyframes showTitleUnderline {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    
+    /* Fix for skill bars */
+    .skill-item[data-percentage="90"] .skill-progress { width: 90%; }
+    .skill-item[data-percentage="85"] .skill-progress { width: 85%; }
+    .skill-item[data-percentage="80"] .skill-progress { width: 80%; }
+    .skill-item[data-percentage="75"] .skill-progress { width: 75%; }
+    .skill-item[data-percentage="70"] .skill-progress { width: 70%; }
+    .skill-item[data-percentage="65"] .skill-progress { width: 65%; }
+  </style>
+`);
